@@ -1,8 +1,15 @@
 import os
 
+def say(thing):
+    print(thing)
+
 def cmdver():
-    print("cmd.py v0.0.1, open source project.")
-    print("github link: ")
+    print("cmd.py v0.0.2, open source project.")
+    print("github link: https://github.com/iggnaT/cmd.py")
+    print("check it often for new updates")
+    print("type help to get help")
+
+cmdver()
 
 def math(number1, char, number2):
     if(char == "+"):
@@ -38,9 +45,21 @@ def help(): # todo: add more help xd
     print("dlt - deletes file")
     print("read - reads file")
     print("math - simple calculator")
+    print("ver - shows version")
+    print("say - says what you type")
 
 def cmdthing():
         cmd = input("cmd.py > ")
+
+        if(cmd == "cmd.py"):
+            cmdver()
+        if(cmd == "cmd"):
+            cmdver()
+        if(cmd == "ver"):
+            cmdver()
+
+        if(cmd == "say"):
+            say(input("what to say: "))
 
         if(cmd == ""):
             cmdthing()

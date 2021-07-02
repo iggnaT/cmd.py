@@ -1,10 +1,39 @@
 import os
 
+name = "user"
+path = os.path.join("C:\\Users\\Public\\cmd.py\\config\\", "config.cfg")
+
+def firstenter():
+    try:
+        os.mkdir("C:\\Users\\Public\\cmd.py")
+        os.mkdir("C:\\Users\\Public\\cmd.py\\config")
+        name = input("hi there! what's your name (you will be able to change it any time): ")
+        f = open(path, 'w')
+        f.write(name)
+        f.close
+    except:
+        pass
+
+def getname():
+    f = open("C:\\Users\\Public\\cmd.py\\config\\config.cfg", 'r')
+    return f.read()
+
 def say(thing):
     print(thing)
 
+def changename():
+    newname = input("what name do you want: ")
+    f = open(path, 'w')
+    f.write(newname)
+    f.close
+
+def whatsnew():
+    print("added:")
+    print("user system")
+    print("whats new command")
+
 def cmdver():
-    print("cmd.py v0.0.2, open source project.")
+    print("cmd.py v0.0.3, open source project.")
     print("github link: https://github.com/iggnaT/cmd.py")
     print("check it often for new updates")
     print("type help to get help")
@@ -47,9 +76,14 @@ def help(): # todo: add more help xd
     print("math - simple calculator")
     print("ver - shows version")
     print("say - says what you type")
+    print("chngname - changes name you specified on first launch of cmd.py")
+    print("whnew - shows what has been added and what was removed")
 
 def cmdthing():
-        cmd = input("cmd.py > ")
+        firstenter()
+        name = getname()
+
+        cmd = input("cmd.py\\" + name + " > ")
 
         if(cmd == "cmd.py"):
             cmdver()
@@ -61,8 +95,12 @@ def cmdthing():
         if(cmd == "say"):
             say(input("what to say: "))
 
+        if(cmd == "whnew"):
+            whatsnew()
+
         if(cmd == ""):
             cmdthing()
+
         try:
             if(cmd == "math"):
                 math(int(input("number 1: ")), input("what to do (+, -, * or /): "), int(input("number 2: ")))
@@ -71,6 +109,9 @@ def cmdthing():
             
         if(cmd == "\n"):
             cmdthing()
+
+        elif(cmd == "chngname"):
+            changename()
 
         elif(cmd == "read"):
             readfile(input("file name: "))            

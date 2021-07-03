@@ -8,3 +8,5 @@ this is the terminal's ripoff.
 
 # why are you doing that?
 so basically I was very bored and I decided to make it just to avoid dying from boredness
+
+edit: i dont know why i need some features but still fine
